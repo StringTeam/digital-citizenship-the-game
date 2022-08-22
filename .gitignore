@@ -23,6 +23,9 @@
 # Visual Studio cache directory
 .vs/
 
+# VS Code config directory
+.vscode/
+
 # Visual Studio config
 .vsconfig
 
