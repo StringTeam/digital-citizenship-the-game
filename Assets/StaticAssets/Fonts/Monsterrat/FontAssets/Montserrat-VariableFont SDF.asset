@@ -162,11 +162,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Montserrat-Regular SDF
+  m_Name: Montserrat-VariableFont SDF
   m_EditorClassIdentifier: 
-  hashCode: -2042930531
+  hashCode: 92985618
   material: {fileID: -3826290036899441751}
-  materialHashCode: -1542015459
+  materialHashCode: -1741035918
   m_Version: 1.1.0
   m_SourceFontFileGUID: 31fab69226ed27449aaab53fd71b623e
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 31fab69226ed27449aaab53fd71b623e, type: 3}
@@ -5637,7 +5637,8 @@ MonoBehaviour:
   m_FontFeatureTable:
     m_GlyphPairAdjustmentRecords: []
   fallbackFontAssets: []
-  m_FallbackFontAssetTable: []
+  m_FallbackFontAssetTable:
+  - {fileID: 11400000, guid: 0b7521c0acd8b394689ee5989fdd662e, type: 2}
   m_CreationSettings:
     sourceFontFileName: 
     sourceFontFileGUID: 31fab69226ed27449aaab53fd71b623e
@@ -5658,24 +5659,24 @@ MonoBehaviour:
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 11400000, guid: 8910fb80949ea594e86b212fddb3a987, type: 2}
+    italicTypeface: {fileID: 11400000, guid: 8de72383265e2294ab5435a5d6763b8d, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: e7c1e50d03dae6a4d9814269533ac0f9, type: 2}
+    italicTypeface: {fileID: 11400000, guid: e7c1e50d03dae6a4d9814269533ac0f9, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: 23a965b587777b24cbe45225011c2ac4, type: 2}
+    italicTypeface: {fileID: 11400000, guid: 98bf6b487a2866e499f82374116a4867, type: 2}
   - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
+    italicTypeface: {fileID: 11400000, guid: 6d2a117fed93e4a4da22839add0c97f9, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: 74f9a21f2c0e520429116370dfcd5dca, type: 2}
+    italicTypeface: {fileID: 11400000, guid: 17af96b1140b9cb40b16713ad606ef78, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: a8cf0c9ccbd33fc4382ad4d6a17e3571, type: 2}
+    italicTypeface: {fileID: 11400000, guid: 5d84a5a693847454e97ecf6838cb9845, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: 645efbdf54cb5f845b12a7bc5f5c4c1b, type: 2}
+    italicTypeface: {fileID: 11400000, guid: dae148c7258f1ec4f9b419c718fce3c9, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: d17a4dfef72f4e84d8ea52959506583e, type: 2}
+    italicTypeface: {fileID: 11400000, guid: d17a4dfef72f4e84d8ea52959506583e, type: 2}
+  - regularTypeface: {fileID: 11400000, guid: 39462928106925a4ea3f70addda0961c, type: 2}
+    italicTypeface: {fileID: 11400000, guid: 9c12d75963a50da4a9818600c7c460fa, type: 2}
   fontWeights: []
   normalStyle: 0
   normalSpacingOffset: 0
