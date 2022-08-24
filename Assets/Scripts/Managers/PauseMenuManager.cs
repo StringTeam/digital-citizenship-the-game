@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ST
+namespace ST.Managers
 {
 	public class PauseMenuManager : MonoBehaviour
 	{

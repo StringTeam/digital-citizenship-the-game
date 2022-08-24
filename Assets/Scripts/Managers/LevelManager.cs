@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ST
+namespace ST.Managers
 {
 	/// <summary>
 	/// The level manager is used to change levels/scenes.
