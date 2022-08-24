@@ -16,6 +16,8 @@ namespace ST.Managers
         [SerializeField] private AudioSource _musicAS;
         private AudioSource _audioSource;
 
+        private GameManager _gameManager;
+
         public AudioMixer Mixer { get => _mixer; set => _mixer = value; }
         public SoundEffect StartingMusic { get => _startingMusic; set => _startingMusic = value; }
         public AudioSource MusicAS { get => _musicAS; set => _musicAS = value; }
@@ -23,6 +25,7 @@ namespace ST.Managers
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            _gameManager = FindObjectOfType<GameManager>();
         }
 
         private void Start()
@@ -30,7 +33,13 @@ namespace ST.Managers
             PlayMusicTrack(StartingMusic);
         }
 
-        public void ChangeMixerGroupVolume(string group, float volume) => _ = Mixer.SetFloat(group, volume);
+        public void ChangeMixerGroupVolume(string group, float volume)
+        {
+            // TODO: Mixer Group volume not changing.
+            volume = Mathf.Log(volume / 100) * 20;
+            _ = Mixer.SetFloat(group, volume);
+            _gameManager.SetPref(group, $"{volume}");
+        }
 
         public void PlayClipOnce(SoundEffect effect)
         {

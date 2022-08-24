@@ -317,11 +317,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: '%resolution%'
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: '%resolution%'
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: '%resolution%'
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 75
+  m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 25
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 50
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3381,7 +3381,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2ba0f42d60043489145dde496f4f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _volumeSliders: []
+  _volumeSliders:
+  - _parameterName: Master
+    _slider: {fileID: 228147934}
+    _defaultVolume: 25
+  - _parameterName: Music
+    _slider: {fileID: 343395026}
+    _defaultVolume: 50
+  - _parameterName: SoundEffects
+    _slider: {fileID: 199637580}
+    _defaultVolume: 75
   _resolutionDropdown: {fileID: 104808945}
   _screenModeDropdown: {fileID: 1111200505}
 --- !u!114 &1102917000
@@ -3564,11 +3573,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Exclusive Fullscreen
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Fullscreen Windowed
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Windowed
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4253,7 +4262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: '%resolution%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b7521c0acd8b394689ee5989fdd662e, type: 2}
   m_sharedMaterial: {fileID: -3826290036899441751, guid: 0b7521c0acd8b394689ee5989fdd662e, type: 2}
@@ -4388,7 +4397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: Exclusive Fullscreen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b7521c0acd8b394689ee5989fdd662e, type: 2}
   m_sharedMaterial: {fileID: -3826290036899441751, guid: 0b7521c0acd8b394689ee5989fdd662e, type: 2}
