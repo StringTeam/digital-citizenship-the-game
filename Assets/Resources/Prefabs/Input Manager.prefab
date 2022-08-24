@@ -90,6 +90,102 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1742aed1-f0ba-4878-93a7-dbd51927f402
     m_ActionName: Default/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnSpaceInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 94e9cdd8-c5b4-4007-bf6e-176c702629c2
+    m_ActionName: Default/Space[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnMouseMovementInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 02c7a51a-145a-4424-9c07-a562064d0222
+    m_ActionName: Default/MouseMovement[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnLShiftInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 948dd48c-2a5a-41d9-99e3-11309e90d892
+    m_ActionName: Default/Shift[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnLControlInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f9263767-02d1-42ab-a71d-eb6bd6e74a2b
+    m_ActionName: Default/Control[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnEnterInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc67da1f-c6e0-4ca2-b5a9-3b9a5f25c12c
+    m_ActionName: Default/Enter[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659936193203968414}
+        m_TargetAssemblyTypeName: ST.InputManager, Assembly-CSharp
+        m_MethodName: OnMousePositionInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 00d22d5c-b6fc-4a66-b0de-501ebe7ce66e
+    m_ActionName: Default/MousePosition[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Default
