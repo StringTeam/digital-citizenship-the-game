@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using ST.Util;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +25,6 @@ namespace ST.Managers
         }
     }
 
-    [RequireComponent(typeof(Persistent))]
     public class SettingsManager : MonoBehaviour
     {
         private AudioManager _audioManager;

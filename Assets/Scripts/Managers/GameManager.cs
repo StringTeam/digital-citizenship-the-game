@@ -1,10 +1,8 @@
-using ST.Util;
 using UnityEditor;
 using UnityEngine;
 
 namespace ST.Managers
 {
-    [RequireComponent(typeof(Persistent))]
     public class GameManager : MonoBehaviour
     {
         public void QuitGame()

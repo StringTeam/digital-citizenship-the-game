@@ -4,7 +4,6 @@ using UnityEngine.Audio;
 
 namespace ST.Managers
 {
-    [RequireComponent(typeof(Util.Persistent))]
     public class AudioManager : MonoBehaviour
     {
         [Header("Mixer")]
