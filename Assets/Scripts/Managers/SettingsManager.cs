@@ -18,11 +18,11 @@ namespace ST.Managers
         public Slider Slider { get => _slider; set => _slider = value; }
         public float DefaultVolume { get => _defaultVolume; set => _defaultVolume = value; }
 
-        public VolumeSlider(string parameterName, Slider slider, float defaultVolume)
+        public VolumeSlider(string parameterName, Slider slider)
         {
             ParameterName = parameterName;
             Slider = slider;
-            DefaultVolume = defaultVolume;
+            DefaultVolume = 50.0f;
         }
     }
 
@@ -74,20 +74,27 @@ namespace ST.Managers
 
         private void InitializeVolumeSliders()
         {
-            // TODO: If no key found set to default volume value.
-            // TODO: Slider Value Text not updating.
-            foreach (VolumeSlider data in _volumeSliders)
+            for (int i = 0; i < _volumeSliders.Length; i++)
+            {
+                VolumeSlider data = _volumeSliders[i];
                 data.Slider.value = _gameManager.HasKey(data.ParameterName) ? float.Parse(_gameManager.GetPref(data.ParameterName)) : data.DefaultVolume;
+                ChangeVolume(i);
+            }
         }
 
         public void ChangeResolution(int index)
         {
+            // TODO: Resolution not changing.
             Resolution res = Screen.resolutions[index];
             Screen.SetResolution(res.width, res.height, Screen.fullScreen, res.refreshRate);
+#if UNITY_EDITOR
+            Debug.Log($"Resolution is <b>{res.width} x {res.height} @{res.refreshRate}Hz</b>");
+#endif
         }
 
         public void ChangeScreenMode(int index)
         {
+            // TODO: Screen mode not changing.
             switch (index)
             {
                 case 0:
@@ -102,6 +109,9 @@ namespace ST.Managers
                     Screen.fullScreenMode = FullScreenMode.Windowed;
                     break;
             }
+#if UNITY_EDITOR
+            Debug.Log($"ScreenMode is <b>{(int)Screen.fullScreenMode}</b>");
+#endif
         }
 
         public void ChangeVolume(int index) => _audioManager.ChangeMixerGroupVolume(_volumeSliders[index].ParameterName, _volumeSliders[index].Slider.value);

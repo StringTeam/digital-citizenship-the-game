@@ -15,7 +15,6 @@ namespace ST.Managers
 
         [SerializeField] private AudioSource _musicAS;
         private AudioSource _audioSource;
-
         private GameManager _gameManager;
 
         public AudioMixer Mixer { get => _mixer; set => _mixer = value; }
@@ -35,10 +34,9 @@ namespace ST.Managers
 
         public void ChangeMixerGroupVolume(string group, float volume)
         {
-            // TODO: Mixer Group volume not changing.
-            volume = Mathf.Log(volume / 100) * 20;
-            _ = Mixer.SetFloat(group, volume);
             _gameManager.SetPref(group, $"{volume}");
+            // TODO: Mixer group volume not changing correctly.
+            _ = Mixer.SetFloat(group, Mathf.Log10(volume / 100 * 20));
         }
 
         public void PlayClipOnce(SoundEffect effect)
