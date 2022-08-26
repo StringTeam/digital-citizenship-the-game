@@ -14,14 +14,14 @@ namespace ST
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		public static void LoadInputManager()
 		{
-			GameObject managers = GameObject.Instantiate(Resources.Load("Prefabs/Input Manager")) as GameObject;
+			GameObject managers = GameObject.Instantiate(Resources.Load("Prefabs/InputManager")) as GameObject;
 			managers.AddComponent<Util.Persistent>();
 		}
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		public static void LoadPauseMenu()
 		{
-			GameObject pauseMenu = GameObject.Instantiate(Resources.Load("Prefabs/Pause Menu")) as GameObject;
+			GameObject pauseMenu = GameObject.Instantiate(Resources.Load("Prefabs/PauseMenu")) as GameObject;
 			pauseMenu.AddComponent<Util.Persistent>();
 		}
 
