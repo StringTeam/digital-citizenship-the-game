@@ -34,8 +34,7 @@ namespace ST.Managers
         public void ChangeMixerGroupVolume(string group, float volume)
         {
             _gameManager.SetPref(group, $"{volume}");
-            // TODO: Mixer group volume not changing correctly.
-            _ = Mixer.SetFloat(group, Mathf.Log10(volume / 100 * 20));
+            _ = Mixer.SetFloat(group, Mathf.Log10(volume / 100) * 20);
         }
 
         public void PlayClipOnce(SoundEffect effect)

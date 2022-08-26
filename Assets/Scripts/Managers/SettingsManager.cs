@@ -41,9 +41,15 @@ namespace ST.Managers
 
         private void Start()
         {
-            _screenModeDropdown.value = (int)Screen.fullScreenMode;
+            InitializeScreenModeDropdown();
             InitializeResolutionDropdown();
             InitializeVolumeSliders();
+        }
+
+        private void InitializeScreenModeDropdown()
+        {
+            _screenModeDropdown.value = (int)Screen.fullScreenMode;
+            _screenModeDropdown.onValueChanged.AddListener(delegate { ChangeScreenMode(_screenModeDropdown.value); });
         }
 
         private void InitializeResolutionDropdown()
@@ -68,6 +74,8 @@ namespace ST.Managers
             _resolutionDropdown.AddOptions(res);
             _resolutionDropdown.value = currentResolution;
             _resolutionDropdown.RefreshShownValue();
+
+            _resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
         }
 
         private void InitializeVolumeSliders()
@@ -76,23 +84,27 @@ namespace ST.Managers
             {
                 VolumeSlider data = _volumeSliders[i];
                 data.Slider.value = _gameManager.HasKey(data.ParameterName) ? float.Parse(_gameManager.GetPref(data.ParameterName)) : data.DefaultVolume;
+#if UNITY_EDITOR
+                // TODO: Make an audio slider automatically have ChangeVolume method.
+                // NOTE: ChangeVolume cannot be added, because it needs an index of the slider, the following snippet doesn't work.
+                // ERROR: IndexOutOfRangeException: Index was outside the bounds of the array.
+                //data.Slider.onValueChanged.AddListener(delegate { ChangeVolume(i); });
+#endif
                 ChangeVolume(i);
             }
         }
 
         public void ChangeResolution(int index)
         {
-            // TODO: Resolution not changing.
             Resolution res = Screen.resolutions[index];
-            Screen.SetResolution(res.width, res.height, Screen.fullScreen, res.refreshRate);
+            Screen.SetResolution(res.width, res.height, false, res.refreshRate);
 #if UNITY_EDITOR
-            Debug.Log($"Resolution is <b>{res.width} x {res.height} @{res.refreshRate}Hz</b>");
+            Debug.Log($"Resolution was set to <b>{res.width} x {res.height} @{res.refreshRate}Hz</b>");
 #endif
         }
 
         public void ChangeScreenMode(int index)
         {
-            // TODO: Screen mode not changing.
             switch (index)
             {
                 case 0:
@@ -104,14 +116,20 @@ namespace ST.Managers
                     break;
 
                 case 2:
+                    Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
+                    break;
+
+                case 3:
                     Screen.fullScreenMode = FullScreenMode.Windowed;
                     break;
             }
-#if UNITY_EDITOR
-            Debug.Log($"ScreenMode is <b>{(int)Screen.fullScreenMode}</b>");
-#endif
         }
 
-        public void ChangeVolume(int index) => _audioManager.ChangeMixerGroupVolume(_volumeSliders[index].ParameterName, _volumeSliders[index].Slider.value);
+        public void ChangeVolume(int index)
+        {
+            VolumeSlider volumeSlider = _volumeSliders[index];
+            float groupVolume = Mathf.Clamp(volumeSlider.Slider.value, 0.0001f, volumeSlider.Slider.maxValue);
+            _audioManager.ChangeMixerGroupVolume(volumeSlider.ParameterName, groupVolume);
+        }
     }
 }
