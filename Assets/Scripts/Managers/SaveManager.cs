@@ -7,12 +7,14 @@ namespace ST.Managers
 	/// </summary>
 	public class SaveManager : MonoBehaviour
 	{
-		public Types.SaveData CurrentSave { get; set;}
+		public Types.SaveData CurrentSave { get; set; }
+		
+        private GameManager _gameManager;
 
-        //private _gameManager;
-
-        private void Start() {
-            //_gameManager = FindObjectOfType<GameManager>();
+        private void Start()
+		{
+            _gameManager = FindObjectOfType<GameManager>();
+			CurrentSave = new();
         }
 
 		/// <summary>
@@ -20,9 +22,7 @@ namespace ST.Managers
 		/// </summary>
 		public void LoadSave(string saveKey)
 		{
-            //string jsonData = _gameManager.GetPref(saveKey);
-            string jsonData = "";
-
+            string jsonData = _gameManager.GetPref(saveKey);
             CurrentSave = JsonUtility.FromJson<Types.SaveData>(jsonData);
 		}
 
@@ -32,7 +32,7 @@ namespace ST.Managers
 		public void SaveGame(string saveKey)
 		{
             string jsonData = JsonUtility.ToJson(CurrentSave);
-            //_gameManager.SetPref(saveKey, jsonData);
+            _gameManager.SetPref(saveKey, jsonData);
 		}
 	}
 } // namespace ST
