@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3058131819902285031}
   - component: {fileID: 3058131819902285030}
   m_Layer: 5
-  m_Name: Lataa Peli
+  m_Name: Load Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3058131819902285032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -121,19 +121,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3058131819902285031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3058131820903124702}
-        m_TargetAssemblyTypeName: ST.PoistuNappi, Assembly-CSharp
-        m_MethodName: poistu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3058131820087722486
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +134,7 @@ GameObject:
   - component: {fileID: 3058131820087722485}
   - component: {fileID: 3058131820087722484}
   m_Layer: 5
-  m_Name: Lataa Peli
+  m_Name: Load Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +269,7 @@ GameObject:
   - component: {fileID: 3058131820144478989}
   - component: {fileID: 3058131820144478988}
   m_Layer: 5
-  m_Name: Uusi Peli
+  m_Name: NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3058131820179975107}
   m_Layer: 5
-  m_Name: napit
+  m_Name: buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +444,7 @@ GameObject:
   - component: {fileID: 3058131820198651550}
   - component: {fileID: 3058131820198651521}
   m_Layer: 5
-  m_Name: Poistu
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +580,7 @@ GameObject:
   - component: {fileID: 3058131820285988776}
   - component: {fileID: 3058131820285988779}
   m_Layer: 5
-  m_Name: Asetukset
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,19 +688,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3058131820285988776}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3058131820903124702}
-        m_TargetAssemblyTypeName: ST.PoistuNappi, Assembly-CSharp
-        m_MethodName: poistu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3058131820480131436
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +702,7 @@ GameObject:
   - component: {fileID: 3058131820480131435}
   - component: {fileID: 3058131820480131434}
   m_Layer: 5
-  m_Name: Uusi Peli
+  m_Name: NewGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,19 +810,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3058131820480131435}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3058131820903124702}
-        m_TargetAssemblyTypeName: ST.PoistuNappi, Assembly-CSharp
-        m_MethodName: poistu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3058131820903124673
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +924,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3058131820903124673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ee34cdb5a55dc4a90798d85ce5ef73, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de56f867aa757246a06e0f84d72d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3058131821058254770
@@ -975,7 +939,7 @@ GameObject:
   - component: {fileID: 3058131821058254769}
   - component: {fileID: 3058131821058254768}
   m_Layer: 5
-  m_Name: tausta
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1051,7 +1015,7 @@ GameObject:
   - component: {fileID: 3058131821215173876}
   - component: {fileID: 3058131821215173879}
   m_Layer: 5
-  m_Name: Asetukset
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1187,7 +1151,7 @@ GameObject:
   - component: {fileID: 3058131821902178734}
   - component: {fileID: 3058131821902178705}
   m_Layer: 5
-  m_Name: Poistu
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,9 +1260,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3058131820903124702}
-        m_TargetAssemblyTypeName: ST.PoistuNappi, Assembly-CSharp
-        m_MethodName: poistu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ST.Quit, Assembly-CSharp
+        m_MethodName: quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1320,7 +1284,7 @@ GameObject:
   - component: {fileID: 3058131821958782591}
   - component: {fileID: 3058131821958782590}
   m_Layer: 5
-  m_Name: pelin nimi
+  m_Name: GameName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

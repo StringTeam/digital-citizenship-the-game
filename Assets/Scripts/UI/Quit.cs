@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace ST
 {
-    public class PoistuNappi : MonoBehaviour
+    public class Quit : MonoBehaviour
     {
-        public void poistu()
+        public void quit()
         {
             Application.Quit();
         }
