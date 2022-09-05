@@ -261,11 +261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu:
-    name: 
+    name: Menu
     scene:
-      m_SceneAsset: {fileID: 0}
+      m_SceneAsset: {fileID: 102900000, guid: c2361c6b2f0d6dc29be6c036e5a423e2, type: 3}
       m_IsDirty: 0
-      m_ScenePath: 
+      m_ScenePath: Assets/Scenes/Menu.unity
   _levels: []
 --- !u!1 &6518472422933042118
 GameObject:
