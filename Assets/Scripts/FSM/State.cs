@@ -22,4 +22,4 @@ namespace ST.FSM
 
 		public virtual void Exit() { }
 	}
-} // namespace ST.FSM
+}
