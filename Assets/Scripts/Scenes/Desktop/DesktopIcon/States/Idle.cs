@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 namespace ST.Scenes.Desktop.DesktopIcon.State
 {
@@ -13,9 +12,11 @@ namespace ST.Scenes.Desktop.DesktopIcon.State
 
 		protected Vector3 StartPosition;
 
-		public Idle(FSM.FSM fsm, DesktopIcon thisIcon, DesktopIconData data) : base(fsm, thisIcon, data)
-		{
+		private Managers.LevelManager _levelManager;
 
+		public Idle(FSM.FSM fsm, DesktopIcon thisIcon, DesktopIconData data, Managers.LevelManager lm) : base(fsm, thisIcon, data)
+		{
+			_levelManager = lm;
 		}
 
 		public override void Enter()
@@ -55,6 +56,13 @@ namespace ST.Scenes.Desktop.DesktopIcon.State
 			if (_click && Time.time <= (_clickTime + _doubleClickZone)) {
 				// DOUBLE CLICK
 				Debug.Log("Double Click");
+
+				if (ThisIcon.ToMainMenu) {
+					_levelManager.LoadMainMenu();
+				} else {
+					_levelManager.LoadLevel(ThisIcon.SceneToLoad);
+				}
+
 				_click = false;
 			} else {
 				_click = true;
