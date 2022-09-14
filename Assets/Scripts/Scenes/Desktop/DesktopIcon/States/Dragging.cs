@@ -4,7 +4,7 @@ namespace ST.Scenes.Desktop.DesktopIcon.State
 {
 	public class Dragging : DesktopIconState
 	{
-		private float _dragSpeed = 0.5f;
+		private float _dragSpeed = 0.75f;
 
 		public Dragging(FSM.FSM fsm, DesktopIcon thisIcon, DesktopIconData data) : base(fsm, thisIcon, data)
 		{
@@ -45,9 +45,6 @@ namespace ST.Scenes.Desktop.DesktopIcon.State
 			Data.DragMouseDownFor = 0.0f;
 
 			Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(InputManager.RawMousePositionInput);
-
-
-			// TODO: Snap position to something something something
 
 			ThisIcon.transform.position = new Vector3(SnapToGrid(mousePosInWorld.x), SnapToGrid(mousePosInWorld.y), 0.0f);
 			fsm.ChangeState("Idle");
