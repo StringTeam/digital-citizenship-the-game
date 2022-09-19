@@ -34,7 +34,7 @@ namespace ST
             GetHairColor?.Invoke(HairColor);
             GetSkinColor?.Invoke(SkinColor);
             GetClothesColor?.Invoke(ClothesColor);
-            GetSkinColor?.Invoke(EyesColor);
+            GetEyesColor?.Invoke(EyesColor);
             
     }
     
