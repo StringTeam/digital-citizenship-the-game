@@ -14,16 +14,19 @@ namespace ST
     {
         public TMP_InputField InputText;
         string PlayerName = "";
-
+        int setColors;
         public void MainMenu()
         {
             SceneManager.LoadScene("MainMenu");
         }
         public void CreateCharacter()
         {
-            PlayerName = InputText.text;
-            PlayerPrefs.SetString("PlayerName", PlayerName);
-            SceneManager.LoadScene("Office");
+            if (PlayerPrefs.GetInt("setColors") == 1 && PlayerName.Length > 0)
+            {
+                PlayerName = InputText.text;
+                PlayerPrefs.SetString("PlayerName", PlayerName);
+                SceneManager.LoadScene("Office");
+            }
         }
 
         public void SaveName()

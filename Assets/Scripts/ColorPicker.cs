@@ -30,12 +30,19 @@ public class ColorEvent : UnityEvent<Color> { }
         public string ClothesColorString { get; set; }
         public string EyesColorString { get; set; }
         public int Colors { get; set; }
+        public bool setHairColor = false;
+        public bool setSkinColor = false;
+        public bool setClothesColor = false;
+        public bool setEyesColor = false;
+        public int setColors { get; set; }
+
 
         void Start()
         {
             Rect = GetComponent<RectTransform>();
 
             ColorTexture = GetComponent<Image>().mainTexture as Texture2D;
+            PlayerPrefs.SetInt("setColors", 0);
         }
 
         void Update()
@@ -45,27 +52,20 @@ public class ColorEvent : UnityEvent<Color> { }
                 Vector2 delta;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect, Input.mousePosition, null, out delta);
 
-                string debug = "mousePosition=" + Input.mousePosition;
-                debug += "<br>delta=" + delta;
-
                 float width = Rect.rect.width;
                 float height = Rect.rect.height;
                 delta += new Vector2(width * .5f, height * .5f);
-                debug += "<br>offset delta=" + delta;
 
                 float x = Mathf.Clamp(delta.x / width, 0f, 1f);
                 float y = Mathf.Clamp(delta.y / height, 0f, 1f);
-                debug += "<br>x=" + x + "y=" + y;
+ 
 
                 int texX = Mathf.RoundToInt(x * ColorTexture.width);
                 int texY = Mathf.RoundToInt(y * ColorTexture.height);
-                debug += "<br>texX=" + texX + "texY=" + texY;
-                debug += "<br>color=" + Colors;
+
 
                 Color color = ColorTexture.GetPixel(texX, texY);
 
-                DebugText.color = color;
-                DebugText.text = debug;
 
                 if (Colors == 1)
                 {
@@ -76,6 +76,7 @@ public class ColorEvent : UnityEvent<Color> { }
                         Color HairColor = color;
                         HairColorString = ColorUtility.ToHtmlStringRGB(HairColor);
                         PlayerPrefs.SetString("HairColorString", ColorUtility.ToHtmlStringRGB(HairColor));
+                        setHairColor = true;
                         Colors = 0;
                     }
                 }
@@ -88,6 +89,7 @@ public class ColorEvent : UnityEvent<Color> { }
                         Color SkinColor = color;
                         SkinColorString = ColorUtility.ToHtmlStringRGB(SkinColor);
                         PlayerPrefs.SetString("SkinColorString", ColorUtility.ToHtmlStringRGB(SkinColor));
+                        setSkinColor = true;
                         Colors = 0;
                     }
                 }
@@ -100,6 +102,7 @@ public class ColorEvent : UnityEvent<Color> { }
                         Color ClothesColor = color;
                         ClothesColorString = ColorUtility.ToHtmlStringRGB(ClothesColor);
                         PlayerPrefs.SetString("ClothesColorString", ColorUtility.ToHtmlStringRGB(ClothesColor));
+                        setClothesColor = true;
                         Colors = 0;
                     }
                 }
@@ -112,8 +115,14 @@ public class ColorEvent : UnityEvent<Color> { }
                         Color EyesColor = color;
                         EyesColorString = ColorUtility.ToHtmlStringRGB(EyesColor);
                         PlayerPrefs.SetString("EyesColorString", ColorUtility.ToHtmlStringRGB(EyesColor));
+                        setEyesColor = true;
                         Colors = 0;
                     }
+                }
+
+                if(setEyesColor && setClothesColor && setSkinColor && setHairColor)
+                {
+                    PlayerPrefs.SetInt("setColors", 1);
                 }
 
             }
