@@ -1,4 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
+using ST.Managers;
+using ST.Types;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,14 +12,20 @@ namespace ST.UI
     [RequireComponent(typeof(GridLayoutGroup))]
     public class DynamicScrollContent : MonoBehaviour
     {
+        private const string _saveDataKeyPrefix = "SAVE_";
+        private const int _maxSaves = 9;
         private RectTransform _this;
         private GridLayoutGroup _layoutGroup;
+        private SaveManager _saveManager;
+        private GameManager _gameManager;
         private UnityEvent _onItemCountChanged;
 
         private void Awake()
         {
             _this = GetComponent<RectTransform>();
             _layoutGroup = GetComponent<GridLayoutGroup>();
+            _saveManager = FindObjectOfType<SaveManager>();
+            _gameManager = FindObjectOfType<GameManager>();
         }
 
         private void Start()
@@ -30,11 +39,14 @@ namespace ST.UI
             UpdateContentWidth();
         }
 
-        //private SaveData GetSaveData() { }
-
         private int GetSaveDataCount()
         {
             // TODO: Get save count from registry.
+            //for (int i = 0; i < length; i++)
+            //{
+            //    Get items from registry
+            //}
+
             return 0;
         }
 
