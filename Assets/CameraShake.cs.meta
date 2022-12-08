@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/CameraShake.cs.meta
 guid: c73b8dae95c8bcd469bd7526666fc9bf
+========
+guid: 4c70836bd506ab74c82c12203a41cebb
+>>>>>>>> b95b7b35f7556b6594ecff35825eb4b8b3152d79:Assets/Scripts/PlayerDragScript.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
