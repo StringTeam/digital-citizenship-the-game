@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - Backround
-  - 
+  - Wall
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: Floor
     uniqueID: 4263315765
+    locked: 0
+  - name: UI
+    uniqueID: 428568785
     locked: 0

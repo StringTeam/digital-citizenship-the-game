@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 namespace ST
 {
+    //Class to load character data out of PlayerPrefs
     public class CharacterData : MonoBehaviour
     {
         string PlayerName = "";
@@ -22,7 +23,7 @@ namespace ST
         public Color ClothesColor;
         public Color EyesColor;
 
-        // Start is called before the first frame update
+        //Load the characters name and colors into the objects with the Unity events attached to them
         void Start()
         {
             PlayerName = PlayerPrefs.GetString("PlayerName");

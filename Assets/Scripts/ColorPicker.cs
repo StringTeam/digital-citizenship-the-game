@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.Events;
 
+//Color picker for character creation
 
 namespace ST
 {
@@ -14,6 +15,9 @@ public class ColorEvent : UnityEvent<Color> { }
 
     public class ColorPicker : MonoBehaviour
     {
+        //Variables for the Colorpicker
+
+        //Using Unity Events system to place the colors with
         public TextMeshProUGUI DebugText;
         public ColorEvent OnColorPreviewHair;
         public ColorEvent OnColorPreviewSkin;
@@ -23,8 +27,10 @@ public class ColorEvent : UnityEvent<Color> { }
         public ColorEvent OnColorSelectSkin;
         public ColorEvent OnColorSelectClothes;
         public ColorEvent OnColorSelectEyes;
+
         RectTransform Rect;
         Texture2D ColorTexture;
+
         public string HairColorString { get; set; }
         public string SkinColorString { get; set; }
         public string ClothesColorString { get; set; }
@@ -36,25 +42,27 @@ public class ColorEvent : UnityEvent<Color> { }
         public bool setEyesColor = false;
         public int setColors { get; set; }
 
-
+        //Starting method
         void Start()
         {
-            Rect = GetComponent<RectTransform>();
+            Rect = GetComponent<RectTransform>(); //To get the Rect transform component of the object
 
-            ColorTexture = GetComponent<Image>().mainTexture as Texture2D;
-            PlayerPrefs.SetInt("setColors", 0);
+            ColorTexture = GetComponent<Image>().mainTexture as Texture2D; //Getting the image component and setting it as the texture
+            PlayerPrefs.SetInt("setColors", 0); // Boolean to make sure player has picked all the colors before creating the character
         }
 
         void Update()
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(Rect, Input.mousePosition))
+            if (RectTransformUtility.RectangleContainsScreenPoint(Rect, Input.mousePosition)) //To check that the mouse pointer is inside the Color picker image
             {
-                Vector2 delta;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect, Input.mousePosition, null, out delta);
+                Vector2 delta; //Vector2 variable for saving the pixel coordinates
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect, Input.mousePosition, null, out delta); //To save the pixel coordinates where the mouse cursor is into the delta variable
 
-                float width = Rect.rect.width;
-                float height = Rect.rect.height;
-                delta += new Vector2(width * .5f, height * .5f);
+                float width = Rect.rect.width;                      //Taking the width of the rectangle and saving it into a variable
+                float height = Rect.rect.height;                    //Taking the height of the retangle and saving it into a variable
+
+                //Doing some math to get a more precise location of the pixels color
+                delta += new Vector2(width * .5f, height * .5f);    
 
                 float x = Mathf.Clamp(delta.x / width, 0f, 1f);
                 float y = Mathf.Clamp(delta.y / height, 0f, 1f);
@@ -64,18 +72,18 @@ public class ColorEvent : UnityEvent<Color> { }
                 int texY = Mathf.RoundToInt(y * ColorTexture.height);
 
 
-                Color color = ColorTexture.GetPixel(texX, texY);
+                Color color = ColorTexture.GetPixel(texX, texY); //Saving the color from the pixel coordinates to a color variable
 
-
+                //Checking which button has been pressed by the Player from the Colors variable
                 if (Colors == 1)
                 {
-                    OnColorPreviewHair?.Invoke(color);
+                    OnColorPreviewHair?.Invoke(color); //Uses the variable in the event
                     if (Input.GetMouseButtonDown(0))
                     {
                         OnColorSelectHair?.Invoke(color);
                         Color HairColor = color;
-                        HairColorString = ColorUtility.ToHtmlStringRGB(HairColor);
-                        PlayerPrefs.SetString("HairColorString", ColorUtility.ToHtmlStringRGB(HairColor));
+                        HairColorString = ColorUtility.ToHtmlStringRGB(HairColor); //Saves the color into a string variable from a color variable
+                        PlayerPrefs.SetString("HairColorString", ColorUtility.ToHtmlStringRGB(HairColor)); //Saves the color string into a playerpref string, so that it can be loaded from the playerprefs
                         setHairColor = true;
                         Colors = 0;
                     }
@@ -120,7 +128,7 @@ public class ColorEvent : UnityEvent<Color> { }
                     }
                 }
 
-                if(setEyesColor && setClothesColor && setSkinColor && setHairColor)
+                if(setEyesColor && setClothesColor && setSkinColor && setHairColor) //When all colors has been selected, then this is true
                 {
                     PlayerPrefs.SetInt("setColors", 1);
                 }
@@ -128,7 +136,7 @@ public class ColorEvent : UnityEvent<Color> { }
             }
         }
 
-        public void HairColorButtonDown()
+        public void HairColorButtonDown() //Checks which body part button has been pressed
         {
             Colors = 1;
         }
