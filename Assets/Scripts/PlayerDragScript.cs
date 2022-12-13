@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Random = UnityEngine.Random;
 
 namespace ST
 {
@@ -14,9 +15,19 @@ namespace ST
         private Rigidbody2D rb;
 
         public TextMeshProUGUI Score;
+        public TextMeshProUGUI FinalScore;
         public TextMeshProUGUI Message;
         public TextMeshProUGUI TimerText;
-        public int MazeScore = 50;
+
+        public TextMeshProUGUI _answer1;
+        public TextMeshProUGUI _answer2;
+        public TextMeshProUGUI _answer3;
+
+        public TextMeshProUGUI answer1;
+        public TextMeshProUGUI answer2;
+        public TextMeshProUGUI answer3;
+
+        public int MazeScore = 25;
 
         public GameObject ShakeCamera;
 
@@ -27,9 +38,12 @@ namespace ST
         public int _Timer = 0;
 
         public string Question;
+        public string RightAnswer;
         public string Answer1;
         public string Answer2;
-        public string Answer3;
+
+        [SerializeField] private GameObject LevelOver;
+        public bool levelover = false;
 
 
         // private float Speed;
@@ -50,6 +64,7 @@ namespace ST
             rb = GetComponent<Rigidbody2D>();
             CinemachineShake.Instance.ShakeCamera(0.1f, .0001f); //To fix the shakinesss of the cam that i've no idea what caused it
             Time.timeScale = 0.0f; //Freezes the game at start, so you can get your bearings first
+            GenerateQuestion();
         }
 
 
@@ -60,6 +75,46 @@ namespace ST
             TimerText.text = _Timer.ToString() + " Aika";
         }
 
+        void GenerateQuestion()
+        {
+            var num = Random.Range(1, 1);
+            if (num == 1)
+            {
+                Question = "Mik‰ tekee 'Space' n‰pp‰in kirjoittaessa teksti‰?";
+                RightAnswer = " Tyhj‰n v‰lin";
+                Answer1 = " Rivivaihdon";
+                Answer2 = " Tyhj‰n rivin";
+                var num2 = Random.Range(1, 3);
+                if (num2 == 1)
+                {
+                    _answer1.text = RightAnswer;
+                    _answer2.text = Answer1;
+                    _answer3.text = Answer2;
+                    answer1.text += RightAnswer;
+                    answer2.text += Answer1;
+                    answer3.text += Answer2;
+                }
+                else if (num2 == 2)
+                {
+                    _answer2.text = RightAnswer;
+                    _answer1.text = Answer2;
+                    _answer3.text = Answer1;
+                    answer2.text += RightAnswer;
+                    answer1.text += Answer2;
+                    answer3.text += Answer1;
+                }
+
+                else if (num2 == 3)
+                {
+                    _answer2.text = Answer2;
+                    _answer1.text = Answer1;
+                    _answer3.text = RightAnswer;
+                    answer2.text += Answer2;
+                    answer1.text += Answer1;
+                    answer3.text += RightAnswer;
+                }
+            }
+        }
         //This is to test if HitStop effect would work nicely with collision, but i decided it was a detriment in this game to the gameplay experience
         /* 
              if(RestoreTime)
@@ -101,11 +156,11 @@ namespace ST
          } */
 
 
-      /*  private void FixedUpdate()
-        {
-            if (Input.GetKey(KeyCode.Mouse0))
-                MouseDrag();
-        } */
+        /*  private void FixedUpdate()
+          {
+              if (Input.GetKey(KeyCode.Mouse0))
+                  MouseDrag();
+          } */
 
         //Method for handling collision with the walls and other objects that hinder player movement
         void OnCollisionEnter2D(Collision2D other)
@@ -124,23 +179,66 @@ namespace ST
             }
         }
 
+
+        void OnParticleCollision(GameObject other)
+        {
+            if (other.tag == "Wall")                        //Checks the collision against Wall tag
+            {
+                Debug.Log("Hit the laser");
+                CinemachineShake.Instance.ShakeCamera(20f, .2f);                    //Camerashake that uses a static instance from a script attached to the Cinemachine camera
+                MazeScore--;                                                        //Reduces the Score variable by 1 each time player hits a wall or some other object
+                Message.text = "Osuit Laseriin! V‰hennet‰‰n pisteit‰, ‰l‰ h‰sl‰‰, keskity!"; //Changes the message on the Topbar message object when there's collision
+                Score.text = MazeScore.ToString() + " Pisteet";                     //Updates the score on the topbar score object
+            }
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Vastaus1"))
+            {
+                var TargetText = other.gameObject.GetComponent<TextMeshProUGUI>();
+                for (int i = 30; i > Timer; i += 10)
+                {
+                    MazeScore -= 1;
+                    if(MazeScore < 0)
+                    {
+                        MazeScore = 0;
+                    }
+                }
+                if (TargetText.text == RightAnswer)
+                {
+                    MazeScore += 5;
+                }
+                levelover = true;
+                Time.timeScale = 0.0f;
+                LevelOver.SetActive(true);
+                Score.text = MazeScore.ToString() + " Pisteet";
+                FinalScore.text += MazeScore.ToString();
+            }
+        }
+
         void OnMouseDown()                                      //When the player presses the left mousebutton down this method plays
         {
-            if (Time.timeScale < 1f)                            //Unfreezes the time if the time is stopped, this is to unfreeze it from the startup freeze
+            if (!levelover)
             {
-                Time.timeScale = 1f;
-            }
-            Message.text = Question;                            //Updates the Question text to the TopBar message object
-           // _dragOffset = transform.position - GetMousePos();
+                if (Time.timeScale < 1f)                            //Unfreezes the time if the time is stopped, this is to unfreeze it from the startup freeze
+                {
+                    Time.timeScale = 1f;
+                }
+                Message.text = Question;                            //Updates the Question text to the TopBar message object
+            }                                                // _dragOffset = transform.position - GetMousePos();
         }
 
         void OnMouseDrag()                                      //When player is dragging the object this method plays
         {
-            Vector2 dir = GetMousePos() - transform.position;   //Saves the direction of the mouse position subtracted by the position of the Player object, to a Vector 2 variable
-           // transform.position = transform.position + new Vector3(0, -1f, 0);
-            rb.velocity = dir * _speed;                         //Gives the Player objects rigidBody velocity to the direction saved in the dir variable, and how fast from the _speed variable
+            if (!levelover)
+            {
+                Vector2 dir = GetMousePos() - transform.position;   //Saves the direction of the mouse position subtracted by the position of the Player object, to a Vector 2 variable
+                                                                    // transform.position = transform.position + new Vector3(0, -1f, 0);
+                rb.velocity = dir * _speed;                         //Gives the Player objects rigidBody velocity to the direction saved in the dir variable, and how fast from the _speed variable
 
-            //  rb.position = Vector2.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed + Time.deltaTime); //This was used to move the Player object by RigidBody positioning, but using this method limits how fast it can move, because after 1.9 speed it starts ignoring colliders
+                //  rb.position = Vector2.MoveTowards(transform.position, GetMousePos() + _dragOffset, _speed + Time.deltaTime); //This was used to move the Player object by RigidBody positioning, but using this method limits how fast it can move, because after 1.9 speed it starts ignoring colliders
+            }
         }
 
         Vector3 GetMousePos()                                                   //Vector 3 type method for getting the mouseposition from the camera
