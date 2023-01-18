@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: "Assets/Robertin(\xC4L\xC4 AVAA)/Menu.unity"
     guid: c2361c6b2f0d6dc29be6c036e5a423e2
   - enabled: 1
-    path: Assets/Scenes/CharacterCreation.unity
+    path: "Assets/Robertin(\xC4L\xC4 AVAA)/CharacterCreation.unity"
     guid: fcbf675190bf110409d125d697dbb21d
   - enabled: 1
-    path: Assets/Scenes/Office.unity
+    path: "Assets/Robertin(\xC4L\xC4 AVAA)/Office.unity"
     guid: 723d88aa82bfb6246844d8389d949fc6
   - enabled: 0
     path: Assets/Scenes/Desktop.unity
