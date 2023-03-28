@@ -2,26 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TopdownMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
-    public Rigidbody2D rb2d;
-    private Vector2 moveInput;
+    public float speed = 5f;
+    private float direction = 0f;
+    private Rigidbody2D player;
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        player = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        direction = Input.GetAxis("Horizontal");
 
-        moveInput.Normalize();
-
-        rb2d.velocity = moveInput * moveSpeed;
+        if (direction > 0f)
+        {
+            player.velocity = new Vector2(direction * speed, player.velocity.y);
+        }
+        else if (direction < 0f)
+        {
+            player.velocity = new Vector2(direction * speed, player.velocity.y);
+        }
+        else
+        {
+            player.velocity = new Vector2(0, player.velocity.y);
+        }
     }
 }
