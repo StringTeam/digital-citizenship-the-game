@@ -16,28 +16,32 @@ namespace ST
             
         }
 
-        // Update is called once per frame
         void Update()
         {
+            float horizontalDirection = Input.GetAxisRaw("Horizontal");
+            float verticalDirection = Input.GetAxisRaw("Vertical");
 
-            direction = Input.GetAxisRaw("Vertical");
-            direction = Input.GetAxisRaw("Horizontal");
+            if (horizontalDirection != 0f || verticalDirection != 0f)
+            {
+                Vector2 direction = new Vector2(horizontalDirection, verticalDirection);
+                direction.Normalize();
 
-            if (direction > 0f)
-            {
-                player.velocity = new Vector2(direction * speed, player.velocity.y);
-                transform.localScale = new Vector2(0.2250461f, 0.2469058f);
-            }
-            else if (direction < 0f)
-            {
-                player.velocity = new Vector2(direction * speed, player.velocity.y);
-                transform.localScale = new Vector2(-0.2250461f, 0.2469058f);
+                player.velocity = direction * speed;
+
+                if (horizontalDirection > 0f)
+                {
+                    transform.localScale = new Vector2(0.2250461f, 0.2018555f);
+                }
+                else if (horizontalDirection < 0f)
+                {
+                    transform.localScale = new Vector2(-0.2250461f, 0.2018555f);
+                }
             }
             else
             {
-                player.velocity = new Vector2(0, player.velocity.y);
-            }           
-        }     
+                player.velocity = Vector2.zero;
+            }
+        }
     }
 }
 
