@@ -10,13 +10,15 @@ public class InterMan : MonoBehaviour
 
     public LayerMask detectionLayer;
 
+    public GameObject detectedObject;
+
     void Update()
     {
         if (DetectObject())
         {
             if (InteractInput())
             {
-                Debug.Log("Interact");
+                detectedObject.GetComponent<item>().Interact();
             }
         }
     }
@@ -28,7 +30,20 @@ public class InterMan : MonoBehaviour
 
     bool DetectObject()
     {
-        return Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
+        
+    
+           Collider2D obj =  Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
+        if(obj== null)
+        {
+            detectedObject = null;
+            return false;//Joonatan
+
+        }
+        else
+        {
+            detectedObject = obj.gameObject;
+            return true;//Joonatan 
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -37,3 +52,4 @@ public class InterMan : MonoBehaviour
         Gizmos.DrawSphere(detectionPoint.position, detectionRadius);
     }
 }
+//Steven
