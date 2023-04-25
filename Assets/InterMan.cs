@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InterMan : MonoBehaviour
 {
+    [Header("Detection parameters")]
     public Transform detectionPoint;
 
     private const float detectionRadius = 0.2f;
@@ -11,6 +12,9 @@ public class InterMan : MonoBehaviour
     public LayerMask detectionLayer;
 
     public GameObject detectedObject;
+    [Header("Others")]
+    //List of picked items
+    public List<GameObject> PickedItems= new List<GameObject>();
 
     void Update()
     {
@@ -21,6 +25,12 @@ public class InterMan : MonoBehaviour
                 detectedObject.GetComponent<item>().Interact();
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(detectionPoint.position, detectionRadius);
     }
 
     bool InteractInput()
@@ -46,10 +56,9 @@ public class InterMan : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    public void PickUpItem(GameObject item)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(detectionPoint.position, detectionRadius);
+        PickedItems.Add(item);
     }
 }
 //Steven
