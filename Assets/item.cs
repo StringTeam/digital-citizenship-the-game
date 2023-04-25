@@ -9,6 +9,9 @@ using UnityEngine;
 {
     public enum InteractionType { NONE, Pickup, Examine }
     public InteractionType type;
+    [Header("Exmaine")]
+    public string descriptionText;
+    public Sprite image;
 
     private void Reset()
     {
@@ -22,11 +25,13 @@ using UnityEngine;
         {
             case InteractionType.Pickup:
                 // Lis‰t‰‰n objekti 'PickedUpItems'-listaan InteractionSystem-luokassa
-                //FindObjectOfType<InteractionSystem>().PickUpItem(gameObject);
+            
                 // Poistetaan objekti
                 Destroy(gameObject);
                 break;
             case InteractionType.Examine:
+             //FindObjectOfType<InteractionSystem>().ExamineItem(this);
+
                 Debug.Log("Examine");
                 break;
             default:

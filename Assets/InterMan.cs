@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class InterMan : MonoBehaviour
 {
@@ -12,9 +14,15 @@ public class InterMan : MonoBehaviour
     public LayerMask detectionLayer;
 
     public GameObject detectedObject;
+    [Header("Examine Fields")]
+    public GameObject examineWindow;
+    public Image examineImage;
+    public Text examineText;
+        
+    //Examine window object
     [Header("Others")]
     //List of picked items
-    public List<GameObject> PickedItems= new List<GameObject>();
+    public List<GameObject> PickedItems = new List<GameObject>();
 
     void Update()
     {
@@ -40,10 +48,10 @@ public class InterMan : MonoBehaviour
 
     bool DetectObject()
     {
-        
-    
-           Collider2D obj =  Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
-        if(obj== null)
+
+
+        Collider2D obj = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
+        if (obj == null)
         {
             detectedObject = null;
             return false;//Joonatan
@@ -60,5 +68,16 @@ public class InterMan : MonoBehaviour
     {
         PickedItems.Add(item);
     }
+
+    public void ExamineItem(item item)
+    {
+        examineWindow.SetActive(true);
+        examineImage.sprite = item.GetComponent<SpriteRenderer>().sprite;
+        examineText.text = item.descriptionText;
+    }
+
 }
+
+
+
 //Steven
