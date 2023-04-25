@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 [RequireComponent(typeof(BoxCollider2D))]
   public class item : MonoBehaviour
 {
@@ -21,7 +22,7 @@ using UnityEngine;
         {
             case InteractionType.Pickup:
                 // Lis‰t‰‰n objekti 'PickedUpItems'-listaan InteractionSystem-luokassa
-                FindObjectOfType<InteractionSystem>().PickUpItem(gameObject);
+                //FindObjectOfType<InteractionSystem>().PickUpItem(gameObject);
                 // Poistetaan objekti
                 Destroy(gameObject);
                 break;
