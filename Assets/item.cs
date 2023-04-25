@@ -28,7 +28,7 @@ using UnityEngine;
             
                 // Poistetaan objekti
                 Destroy(gameObject);
-                break;
+                break; //Steven
             case InteractionType.Examine:
              //FindObjectOfType<InteractionSystem>().ExamineItem(this);
 
