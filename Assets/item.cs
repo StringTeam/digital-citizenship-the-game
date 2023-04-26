@@ -13,6 +13,7 @@ using UnityEngine;
     public string descriptionText;
     public Sprite image;
 
+
     private void Reset()
     {
         GetComponent<Collider2D>().isTrigger = true;
