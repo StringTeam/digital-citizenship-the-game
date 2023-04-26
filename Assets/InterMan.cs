@@ -18,6 +18,7 @@ public class InterMan : MonoBehaviour
     public GameObject examineWindow;
     public Image examineImage;
     public Text examineText;
+    bool isExamining;
         
     //Examine window object
     [Header("Others")]
@@ -71,10 +72,24 @@ public class InterMan : MonoBehaviour
 
     public void ExamineItem(item item)
     {
-        examineWindow.SetActive(true);
-        examineImage.sprite = item.GetComponent<SpriteRenderer>().sprite;
-        examineText.text = item.descriptionText;
+       if(isExamining)
+        {
+            Debug.Log("Testii1");
+            examineWindow.SetActive(true);
+            isExamining = false;
+        }
+            else
+        {
+            Debug.Log("Testii2");
+            examineWindow.SetActive(true);
+            examineImage.sprite = item.GetComponent<SpriteRenderer>().sprite;
+            examineText.text = item.descriptionText;
+            examineWindow.SetActive(true);
+            isExamining = true;
+        }
     }
+    
+   
 
 }
 
