@@ -28,3 +28,4 @@ public class hint1 : MonoBehaviour
         }
     }
 }
+//joonatan
