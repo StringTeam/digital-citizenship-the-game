@@ -26,5 +26,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hint1.unity
     guid: 2df06b90456ccab4a8407edb750bbd2a
+  - enabled: 1
+    path: Assets/Scenes/hint2.unity
+    guid: 81decf7202ded364e915b1cea41201d3
+  - enabled: 1
+    path: Assets/Scenes/hint3.unity
+    guid: 4b7818bce32b46444acfb7c55092587f
+  - enabled: 1
+    path: Assets/Scenes/hint4.unity
+    guid: 1eda4e63599c359449310e16680c52f2
+  - enabled: 1
+    path: Assets/Scenes/hint5.unity
+    guid: 68a262d208979e0409e96664bbbba41c
+  - enabled: 1
+    path: Assets/Scenes/hint6.unity
+    guid: 863641c4ff905b84197f23d8cdabeb6f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 729beacfba23f1f3289629f0e4c29e02, type: 2}
