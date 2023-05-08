@@ -23,6 +23,7 @@ public class TypingManager : MonoBehaviour
             if (w.continueText(c))
             {
                 string typed = w.getTyped();
+                typing += typed + "\n";
                 if (typed.Equals(w.text)) //If what we typed is the word's text
                 {
                     //We typed the whole word
@@ -32,6 +33,7 @@ public class TypingManager : MonoBehaviour
                 }
             }
         }
+        display.text = typing;
     }
 }
 [System.Serializable]
