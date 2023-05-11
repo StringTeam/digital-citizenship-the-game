@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 95534640}
   - component: {fileID: 95534642}
   m_Layer: 0
-  m_Name: Dislpay
+  m_Name: Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Teksti '
+  m_Text: "Kirjoita t\xE4h\xE4n."
 --- !u!222 &95534641
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -682,6 +682,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: Hexagon
+    onTyped:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Naapuri
+    onTyped:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Noopuri
     onTyped:
       m_PersistentCalls:
         m_Calls: []

@@ -17,7 +17,8 @@ public class TypingManager : MonoBehaviour
 
         char c = input[0];
         string typing = "";
-        for(int i = 0; i < words.Count; i++)
+        Debug.Log(c);
+        for (int i = 0; i < words.Count; i++)
         {
             Word w = words[i];
             if (w.continueText(c))
