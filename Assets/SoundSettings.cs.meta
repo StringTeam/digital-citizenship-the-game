@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ac735d85e95d9654d8e4958d272f1b6e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - soundSlider: {instanceID: 0}
+  - masterMixer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
