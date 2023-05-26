@@ -1,0 +1,7 @@
+Roskapostin tunnistus pelin Jatkokehitys suunnitelma:
+
+-bugi, joka ilmenee välillä; peliin ilmestyy välillä otsikon sijaan teksti undefined
+-try catch pitää lisätä takaisin bugin korjauksen jälkeen kommentoituun kohtaan
+-tyylin pitäisi olla icdl:le sopiva. Sama värien kanssa
+-pelin pitäisi muistattaa vähän enemmän oikeaa sähköpostin käyttöliittymää
+-peliin pitäisi lisätä äänet. Onnistuu helposti asettamalla ne scriptiin kommentoituihin kohtiin.
