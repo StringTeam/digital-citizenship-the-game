@@ -21,7 +21,7 @@ public class SoundSettings : MonoBehaviour {
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(_value / 100) + 20f);
     }
 
-    public void SetVolumeFromslider()
+    public void SetVolumeFromSlider()
     {
         SetVolume(soundSlider.value);
     }
