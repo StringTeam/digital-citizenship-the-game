@@ -15,7 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Office.unity
     guid: 723d88aa82bfb6246844d8389d949fc6
   - enabled: 0
-    path: Assets/Scenes/Desktop.unity
+    path: 
     guid: 6fdc92d59c3af6c49b3a678a511cd294
+  - enabled: 1
+    path: Assets/Scenes/SetGame.unity
+    guid: f964f584930685941a731bce2b70dbb0
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: db281a5f7bb2f6b47a8fe003d44ec0c4
+  - enabled: 1
+    path: Assets/Scenes/SetPairs.unity
+    guid: 457c1abc25cd1664aa321ba65b12138e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 729beacfba23f1f3289629f0e4c29e02, type: 2}
