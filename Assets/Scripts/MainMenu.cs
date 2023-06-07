@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Siirt‰‰ peli skeneen
     public void Playgame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
+    //Heitt‰‰ logiin 
     public void QuitGame()
     {
         Debug.Log("Quit");
